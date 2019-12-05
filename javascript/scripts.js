@@ -38,4 +38,23 @@ $(document).ready(function() {
 
     $("#output").text(result);
   });
+
+  $("form#quiz").submit(function() {
+    event.preventDefault();
+    var question1 = parseInt($("input:radio[name=question1]:checked").val());
+    var question2 = parseInt($("input:radio[name=question2]:checked").val());
+    var result = add(question1, question2);
+    console.log(question1);
+    console.log(question2);
+    console.log(result);
+    var display;
+    if (result > "9"){
+      display = "You are Hermione Granger";
+    } else if (result > "7") {
+      display = "You are Harry Potter";
+    } else if (result < "7") {
+      display = "You are Ron Weasley";
+    }
+    $("#whoYouAre").text(display);
+  });
 });
